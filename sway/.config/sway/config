@@ -1,3 +1,11 @@
+# --- Início Automático ---
+exec waybar
+exec swaync
+exec wl-paste --watch cliphist store
+exec nm-applet --indicator
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+
 # --- Variáveis ---
 set $mod Mod4
 set $term alacritty
@@ -19,7 +27,7 @@ input type:touchpad {
 # Remove as barras de título clássicas, deixando apenas borda de 2px
 default_border pixel 2
 default_floating_border pixel 2
-hide_edge_borders smart
+hide_edge_borders smart_no_gaps
 
 # Configurações exclusivas do SwayFX (Rounded Corners & Shadows)
 # corner_radius 10
@@ -30,7 +38,7 @@ hide_edge_borders smart
 # blur enable
 # blur_passes 2
 
-gaps inner 2
+gaps inner 8
 gaps outer 0
 
 # --- Cores (Monocromático) ---
@@ -51,13 +59,6 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
 
-# --- Início Automático ---
-exec waybar
-exec swaync
-exec wl-paste --watch cliphist store
-exec nm-applet --indicator
-exec /usr/libexec/polkit-gnome-authentication-agent-1
-
 # --- Atalhos ---
 bindsym $mod+t exec $term
 bindsym $mod+Return exec foot
@@ -70,6 +71,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec wlogout
 bindsym $mod+b exec pkill -USR1 waybar
 bindsym $mod+Shift+b exec pkill waybar || waybar
+bindsym --no-repeat --release Super_L exec pkill $launcher || $launcher
 
 # Clipboard / Notificações
 bindsym $mod+v exec cliphist list | fuzzel --dmenu --prompt="Colar: " | cliphist decode | wl-copy
