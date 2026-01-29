@@ -8,6 +8,11 @@ environment {
   ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+}
+
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
     // off

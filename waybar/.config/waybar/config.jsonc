@@ -8,34 +8,67 @@
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
+        "niri/workspaces",
         "hyprland/workspaces",
         "sway/mode",
+        "niri/mode",
         "hyprland/mode",
         "sway/scratchpad",
+        "niri/scratchpad",
         "hyprland/scratchpad",
-        "custom/media",
-        "sway/window"
-        "hyprland/window"
-
     ],
     "modules-center": [
     ],
     "modules-right": [
         "mpd",
-        "idle_inhibitor",
-        "pulseaudio",
-        "network",
-        "power-profiles-daemon",
+        "tray",
+        "keyboard-state",
         "cpu",
         "memory",
         "temperature",
-        "backlight",
-        "keyboard-state",
+        "custom/clipboard",
+        "custom/notification",
+        "idle_inhibitor",
+        "power-profiles-daemon",
+        "backlight",    
+        "network",
+        "pulseaudio",
         "clock",
-        "tray",
         "custom/power"
     ],
     // Modules configuration
+      "sway/workspaces": {
+           "disable-scroll": true,
+           "all-outputs": true,
+           "warp-on-scroll": false,
+           "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+               "urgent": "",
+               "focused": "",
+               "default": ""
+           }
+       },
+      "niri/workspaces": {
+           "disable-scroll": true,
+           "all-outputs": true,
+           "warp-on-scroll": false,
+           "format": "{name}: {icon}",
+           "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+               "urgent": "",
+               "focused": "",
+               "default": ""
+          }
+       },
     // "hyprland/workspaces": {
     //     "disable-scroll": true,
     //     "all-outputs": true,
@@ -61,8 +94,28 @@
             "unlocked": ""
         }
     },
-    "hyprland/mode": {
+    "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+     "niri/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+     "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "niri/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
     },
     "hyprland/scratchpad": {
         "format": "{icon} {count}",
@@ -109,9 +162,18 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
+        // "timezone": "America/Sao_Paulo",
+        "format": "{:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%d-%m-%Y}"
+    },
+    "custom/clipboard": {
+        "format": "󱘗",
+        "on-click": "cliphist list | fuzzel | cliphist decode | wl-copy"
+    },
+    "custom/notification": {
+        "format": "󰂚",
+        "on-click": "swaync-client -t -sw"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -133,24 +195,24 @@
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
-    "battery": {
-        "states": {
+    //"battery": {
+        //"states": {
             // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+            //"warning": 30,
+            //"critical": 15
+       // },
+        //"format": "{capacity}% {icon}",
+       //"format-full": "{capacity}% {icon}",
+        //"format-charging": "{capacity}% ",
+        //"format-plugged": "{capacity}% ",
+        //"format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
+        //"format-icons": ["", "", "", "", ""]
+    //},
+    //"battery#bat2": {
+        //"bat": "BAT2"
+    //},
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
@@ -169,7 +231,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "kitty -e nmtui"
+        "on-click": "alacritty -e nmtui"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -190,18 +252,18 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    //"custom/media": {
+        //"format": "{icon} {text}",
+        //"return-type": "json",
+        //"max-length": 40,
+        //"format-icons": {
+            //"spotify": "",
+            //"default": "🎜"
+        //},
+        //"escape": true,
+        //"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
+    //},
     "custom/power": {
         "format" : "⏻ ",
 		"on-click": "wlogout"

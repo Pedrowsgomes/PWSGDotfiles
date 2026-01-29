@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfdashboard" version="1.0">
+  <property name="enable-animations" type="bool" value="false"/>
+  <property name="components" type="empty">
+    <property name="applications-view" type="empty">
+      <property name="show-all-apps" type="bool" value="false"/>
+    </property>
+    <property name="windows-view" type="empty">
+      <property name="scroll-event-changes-workspace" type="bool" value="true"/>
+    </property>
+  </property>
+  <property name="theme" type="string" value="xfdashboard-dark"/>
+  <property name="enabled-plugins" type="array">
+    <value type="string" value="hot-corner"/>
+  </property>
+  <property name="reset-search-on-resume" type="bool" value="false"/>
+  <property name="enable-unmapped-window-workaround" type="bool" value="false"/>
+  <property name="always-launch-new-instance" type="bool" value="false"/>
+</channel>

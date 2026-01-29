@@ -25,7 +25,6 @@ class = { instance = "Alacritty", general = "Alacritty" }
 
 # --- FONTE (FONT) ---
 [font]
-# Você pode usar "JetBrainsMono Nerd Font" ou similar para ícones no terminal
 normal = { family = "Source Code Pro", style = "Regular" }
 bold = { family = "Source Code Pro", style = "Bold" }
 italic = { family = "Source Code Pro", style = "Italic" }
@@ -42,8 +41,6 @@ style = { shape = "Beam", blinking = "On" }
 thickness = 0.15
 
 # --- CORES (COLORS) ---
-# Aqui você pode definir o esquema de cores.
-# Como você usa Fedora/KDE/Niri, pode querer combinar com o DankMateria.
 #[colors.primary]
 #background = "#1a1b26"
 #foreground = "#c0caf5"
@@ -98,7 +95,3 @@ action = "IncreaseFontSize"
 key = "Minus"
 mods = "Control"
 action = "DecreaseFontSize"
-
-#[general]
-# Importar o tema customizado
-#import = ["~/.config/alacritty/dank-theme.toml"]
