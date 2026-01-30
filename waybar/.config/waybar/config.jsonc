@@ -7,12 +7,10 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+		"wlr/workspaces",
         "sway/workspaces",
         "niri/workspaces",
         "hyprland/workspaces",
-        "sway/mode",
-        "niri/mode",
-        "hyprland/mode",
         "sway/scratchpad",
         "niri/scratchpad",
         "hyprland/scratchpad",
@@ -37,54 +35,86 @@
         "custom/power"
     ],
     // Modules configuration
-      "sway/workspaces": {
-           "disable-scroll": true,
-           "all-outputs": true,
-           "warp-on-scroll": false,
-           "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-               "urgent": "",
-               "focused": "",
-               "default": ""
-           }
-       },
-      "niri/workspaces": {
-           "disable-scroll": true,
-           "all-outputs": true,
-           "warp-on-scroll": false,
-           "format": "{name}: {icon}",
-           "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-               "urgent": "",
-               "focused": "",
-               "default": ""
-          }
-       },
-    // "hyprland/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+	"wlr/workspaces": {
+		"disable-scroll": false,
+		"warp-on-scroll": false,          
+		"all-outputs": true,
+		"active-only":false,
+		"on-click": "activate",
+		"persistent-workspaces":{
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+		},
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"sway/workspaces": {
+		"disable-scroll": false,
+		"warp-on-scroll": false,          
+		"all-outputs": true,
+		"active-only":false,
+		"on-click": "activate",
+		"persistent-workspaces":{
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+		},
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"niri/workspaces": {
+		"disable-scroll": false,
+		"warp-on-scroll": false,          
+		"all-outputs": true,
+		"active-only":false,
+		"on-click": "activate",
+		"persistent-workspaces":{
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+		},
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"hyprland/workspaces": {
+		"disable-scroll": false,
+		"warp-on-scroll": false,          
+		"all-outputs": true,
+		"active-only":false,
+		"on-click": "activate",
+		"persistent-workspaces":{
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+		},
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -93,15 +123,6 @@
             "locked": "",
             "unlocked": ""
         }
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-     "niri/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-     "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
@@ -169,7 +190,7 @@
     },
     "custom/clipboard": {
         "format": "󱘗",
-        "on-click": "cliphist list | fuzzel | cliphist decode | wl-copy"
+        "on-click": "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
     },
     "custom/notification": {
         "format": "󰂚",
