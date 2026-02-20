@@ -1,329 +1,97 @@
+/* Configurações Globais - Reset */
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    font-family: "Symbols Nerd Font, Google Sans Flex", "Cascadia Code NF", "Sans Serif";
+    font-size: 13px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
+/* Base da Barra (Transparente para o efeito Island) */
 window#waybar {
-    background-color: rgba(00, 00, 00, 0.5);
-    border-bottom: 3px solid rgba(5, 5, 5, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+/* Container dos Módulos */
+.modules-left, .modules-center, .modules-right {
+    background-color: rgba(18, 18, 18, 0.85); /* Material Black com transparência */
+    border: 1px solid rgba(67, 67, 67, 0.7);
+    padding: 2px 10px;
+    border-radius: 12px;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
-button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-    background-color: #000000;
-}
-
+/* Ajustes para o Sway e Workspaces */
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #ffffff;
+padding: 0 5px;
+background-color: #434343;
+color: #ffffff;
+border-radius: 100px;
+transition: all 0.3s ease-in-out;
+margin: 2px 2px;
+min-width: 10px;
 }
 
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces button.focused,
+#workspaces button.active {
+background-color: #e8ead1; /* Tom de branco gelo/monocromático */
+color: #121212;
+min-width: 30px; /* Efeito de pílula expandida */
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+background-color: #eb4d4b;
+color: #ffffff;
 }
 
-#mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
+/* Módulos Individuais */
 #clock,
 #battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
 #pulseaudio,
-#wireplumber,
-#custom-media,
-#custom-clipboard,
-#custom-notification,
+#network,
+#cpu,
 #tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
+#backlight
+#memory,
+#temperature,
+#cliphist,
 #power-profiles-daemon,
-#mpd {
-    padding: 0 4px;
-    color: #ffffff;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
-#clock {
-    background-color: transparent;
-}
-
-#battery {
-    background-color: transparent;
-    color: #000000;
-}
-
-#battery.charging, #battery.plugged {
-    color: transparent;
-    background-color: #26A65B;
-}
-
-@keyframes blink {
-    to {
-        background-color: transparent;
-        color: #000000;
-    }
-}
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-    background-color: transparent;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#power-profiles-daemon {
-    padding-right: 15px;
-}
-
-#power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background-color: transparent;
-    color: #ffffff;
-}
-
+#idle_inhibitor,
+#power,
+#notification,
 #memory {
-    background-color: transparent;
+padding: 0 4px;
+margin: 2px 4px;
+border-radius: 8px;
+background-color: rgba(255, 255, 255, 0.1); /* Efeito de vidro sutil */
+color: #ffffff;
 }
 
-#disk {
-    background-color: transparent;
+/* Relógio em Destaque (Centro) */
+#clock {
+font-size: 13px;
+font-weight: 800;
+background-color: transparent;
 }
 
-#backlight {
-    background-color: transparent;
+/* Estilo Monocromático para Bateria e Som */
+#battery.charging, #battery.plugged {
+color: #ffffff;
 }
 
-#network {
-    background-color: transparent;
+/* Se quiser o efeito de pílula sólida para os ícones como no vídeo: */
+#pulseaudio, #network, #battery, #tray, #backlight, #cpu, #memory, #temperature, #power-profiles-daemon, #idle_inhibitor {
+background-color: transparent; /* Cinza escuro sólido para contraste */
+color: #ffffff;
 }
 
-#network.disconnected {
-    background-color: transparent;
-}
-
-#pulseaudio {
-    background-color: transparent;
-    color: #ffffff;
-}
-
-#pulseaudio.muted {
-    background-color: transparent;
-    color: #2a5c45;
-}
-
-#wireplumber {
-    background-color: transparent;
-    color: #ffffff;
-}
-
-#wireplumber.muted {
-    background-color: transparent;
-}
-
-#custom-media {
-    background-color: transparent;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: transparent;
-}
-
-#custom-media.custom-vlc {
-    background-color: transparent;
-}
-
-#temperature {
-    background-color: transparent;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-
-#tray {
-    background-color: transparent;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: transparent;
-}
-
-#idle_inhibitor.activated {
-    background-color: transparent;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: transparent;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: transparent;
-}
-
-#mpd.stopped {
-    background-color: transparent;
-}
-
-#mpd.paused {
-    background-color: transparent;
-}
-
-#language {
-    background: transparent;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: transparent;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
-}
-
-#privacy {
-    padding: 0;
-}
-
-#privacy-item {
-    padding: 0 5px;
-    color: white;
-}
-
-#privacy-item.screenshare {
-    background-color: transparent;
-}
-
-#privacy-item.audio-in {
-    background-color: transparent;
-}
-
-#privacy-item.audio-out {
-    background-color: transparent;
+/* Tooltip */
+tooltip {
+    background: rgba(18, 18, 18, 0.9);
+    border: 1px solid rgba(67, 67, 67, 0.7);
+    border-radius: 8px;
 }

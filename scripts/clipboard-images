@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Lista os itens e permite a seleção via fuzzel
+selected=$(cliphist list | fuzzel --dmenu --prompt="📋 Clipboard: ")
+
+# Se nada for selecionado, encerra
+[ -z "$selected" ] && exit 0
+
+# Verifica se o item é binário (imagem)
+if echo "$selected" | grep -q "[[binary]]"; then
+    # Decodifica a imagem e coloca de volta no clipboard
+    cliphist decode <<< "$selected" | wl-copy
+    # Opcional: Notificação avisando que a imagem foi copiada
+    notify-send "Clipboard" "Imagem copiada para o clipboard" -i image
+else
+    # Decodifica o texto e coloca no clipboard
+    cliphist decode <<< "$selected" | wl-copy
+fi

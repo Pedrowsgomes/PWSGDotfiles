@@ -1,87 +1,87 @@
 version = "0.8.5"
-home = "/home/pwsg"
-config_dir = "/home/pwsg/.config/sheldon"
-data_dir = "/home/pwsg/.local/share/sheldon"
-config_file = "/home/pwsg/.config/sheldon/plugins.toml"
+home = "/home/pedro"
+config_dir = "/home/pedro/.config/sheldon"
+data_dir = "/home/pedro/.local/share/sheldon"
+config_file = "/home/pedro/.config/sheldon/plugins.toml"
 
 [[plugins]]
 name = "powerlevel10k"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/romkatv/powerlevel10k"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/romkatv/powerlevel10k"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "z"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/agkozak/zsh-z"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/agkozak/zsh-z/zsh-z.plugin.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/agkozak/zsh-z"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/agkozak/zsh-z/zsh-z.plugin.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "dirhistory"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/Tarrasch/zsh-autoenv"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/Tarrasch/zsh-autoenv/autoenv.plugin.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/Tarrasch/zsh-autoenv"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/Tarrasch/zsh-autoenv/autoenv.plugin.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "zsh-autosuggestions"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-autosuggestions"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-autosuggestions"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "zsh-syntax-highlighting"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-syntax-highlighting"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-syntax-highlighting"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "zsh-completions"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-completions"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-completions/zsh-completions.plugin.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-completions"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-completions/zsh-completions.plugin.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "zsh-history-substring-search"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-history-substring-search"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-history-substring-search"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "ohmyzsh-lib"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
-plugin_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/lib"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/lib/completion.zsh", "/home/pwsg/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/lib/key-bindings.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+plugin_dir = "/home/pedro/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/lib"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/lib/completion.zsh", "/home/pedro/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/lib/key-bindings.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "ohmyzsh-git-plugin"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
-plugin_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/git"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/git/git.plugin.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+plugin_dir = "/home/pedro/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/git"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/git/git.plugin.zsh"]
 apply = ["source"]
 
 [plugins.hooks]
 
 [[plugins]]
 name = "colored-man-pages"
-source_dir = "/home/pwsg/.local/share/sheldon/repos/github.com/ael-code/zsh-colored-man-pages"
-files = ["/home/pwsg/.local/share/sheldon/repos/github.com/ael-code/zsh-colored-man-pages/colored-man-pages.plugin.zsh"]
+source_dir = "/home/pedro/.local/share/sheldon/repos/github.com/ael-code/zsh-colored-man-pages"
+files = ["/home/pedro/.local/share/sheldon/repos/github.com/ael-code/zsh-colored-man-pages/colored-man-pages.plugin.zsh"]
 apply = ["source"]
 
 [plugins.hooks]

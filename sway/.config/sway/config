@@ -5,12 +5,18 @@ exec wl-paste --watch cliphist store
 exec nm-applet --indicator
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec swayosd-server
+
 
 # --- Variáveis ---
 set $mod Mod4
 set $term alacritty
 set $menu fuzzel
 set $browser thunar
+set $xct grep XCURSOR_THEME
+set $xcs grep XCURSOR_SIZE
 
 # --- Input ---
 input * {
@@ -41,7 +47,7 @@ hide_edge_borders smart_no_gaps
 gaps inner 8
 gaps outer 0
 
-seat seat0 xcursor_theme Bibata-Modern-Classic 24
+seat seat0 xcursor_theme $xct $xcs
 
 # --- Cores (Monocromático) ---
 # class                 border  backgr. text    indicator child_border
@@ -133,3 +139,47 @@ bindsym $mod+Shift+9 move container to workspace number 9
 
 bindsym $mod+r mode "resize"
 workspace_auto_back_and_forth yes
+
+# Sink volume raise optionally with --device
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise
+# Sink volume lower optionally with --device
+bindsym XF86AudioLowerVolume exec  swayosd-client --output-volume lower --device alsa_output.pci-0000_11_00.4.analog-stereo.monitor
+# Sink volume toggle mute
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+# Source volume toggle mute
+bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+
+# Volume raise with custom value
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 15
+# Volume lower with custom value
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -15
+
+# Volume raise with max value
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise --max-volume 120
+# Volume lower with max value
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume lower --max-volume 120
+
+# Sink volume raise with custom value optionally with --device
+bindsym XF86AudioRaiseVolume exec  swayosd-client --output-volume +10 --device alsa_output.pci-0000_11_00.4.analog-stereo.monitor
+# Sink volume lower with custom value optionally with --device
+bindsym XF86AudioLowerVolume exec  swayosd-client --output-volume -10 --device alsa_output.pci-0000_11_00.4.analog-stereo.monitor
+
+# Capslock (If you don't want to use the backend)
+bindsym --release Caps_Lock exec swayosd-client --caps-lock
+# Capslock but specific LED name (/sys/class/leds/)
+bindsym --release Caps_Lock exec swayosd-client --caps-lock-led input19::capslock
+
+# Brightness raise (optionally with --device, can be device name or wildcard)
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise --device intel_backlight
+# Brightness lower (optionally with --device, can be device name or wildcard)
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower --device intel_backlight
+
+# Brightness raise with custom value('+' sign needed)
+bindsym XF86MonBrightnessUp  exec swayosd-client --brightness +10
+# Brightness lower with custom value('-' sign needed)
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness -10
+
+# Play/Pause current player
+bindsym XF86AudioPlay exec swayosd-client --playerctl play-pause
+# Next song for current player
+bindsym XF86AudioNext exec swayosd-client --playerctl next

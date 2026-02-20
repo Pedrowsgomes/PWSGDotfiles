@@ -1,3 +1,9 @@
 {
-    "mkparents": true
+    "fzfarg": "--preview 'bat -f -p {}'",
+    "fzfcmd": "fzf",
+    "mkparents": true,
+    "pluginrepos": [
+        "https://raw.githubusercontent.com/MuratovAS/micro-fzfinder/main/repo.json"
+    ],
+    "softwrap": true
 }
