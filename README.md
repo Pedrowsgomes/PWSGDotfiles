@@ -1,3 +1,3 @@
 My dotfiles
 
-chmod +x install.sh
+Kinda works on my machine
